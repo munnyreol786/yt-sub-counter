@@ -159,7 +159,7 @@ setInterval(function() {
 
 
 var estimatedCountRefresh = setInterval(function() {
-		$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data2) {
+		$.getJSON('https://api.livecounts.io/yt_subs', function(data2) {
 			var result = data2.filter(x => x.cid === user);
 			if (result.length != 0) {
 				YT.UpdateManager.updateSubs(YT.UpdateManager.updateSubs(result[0].subscriberCount))
@@ -254,7 +254,7 @@ window.onload = () => {
 	YT.ThemeManager.load();
 	YT.GoalManager.load();
 
-	$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data) {
+	$.getJSON('https://api.livecounts.io/yt_subs', function(data) {
 		var result = data.filter(x => x.cid === user);
 		if (result.length != 0) {
 			isUsingEstimatedCounters = true
@@ -283,7 +283,7 @@ window.onload = () => {
 			document.querySelector('.username').innerText = data.items[0].snippet.title;
 			if (data.items[0].brandingSettings.image.bannerImageUrl.toString() != "http://s.ytimg.com/yts/img/channels/c4/default_banner-vfl7DRgTn.png") {
 				YT.UpdateManager.updateBanner(data.items[0].brandingSettings.image.bannerImageUrl)
-				$.post('https://api.munnyreol786.github.io/subGainPost', {username: data.items[0].snippet.title, cid: user})
+				$.post('https://api.livecounts.io/subGainPost', {username: data.items[0].snippet.title, cid: user})
 			} else {
 				if (user == "UCZJ7m7EnCNodqnu5SAtg8eQ" || user == "UCYiGq8XF7YQD00x7wAd62Zg") {
 					YT.UpdateManager.updateBanner("https://munnyreol786.github.io/yt-sub-counter/assets/img/german-banner.png")
@@ -297,7 +297,7 @@ window.onload = () => {
 			YT.UpdateManager.updateAvatar(data.snippet.thumbnails.high.url)
 			if (data.brandingSettings.image.bannerImageUrl.toString() != "http://s.ytimg.com/yts/img/channels/c4/default_banner-vfl7DRgTn.png") {
 				YT.UpdateManager.updateBanner(data.brandingSettings.image.bannerImageUrl)
-				$.post('https://api.munnyreol786.github.io/subGainPost', {username: data.snippet.title, cid: user})
+				$.post('https://api.livecounts.io/subGainPost', {username: data.snippet.title, cid: user})
 			} else {
 				if (user == "UCZJ7m7EnCNodqnu5SAtg8eQ" || user == "UCYiGq8XF7YQD00x7wAd62Zg") {
 					YT.UpdateManager.updateBanner("https://munnyreol786.github.io/yt-sub-counter/assets/img/german-banner.png")
@@ -318,7 +318,7 @@ window.onload = () => {
 		$("#square-white").css("outline-color", "black")
 	}
 
-	$.getJSON("https://api.munnyreol786.github.io/channelPromotions", function(data) {
+	$.getJSON("https://api.livecounts.io/channelPromotions", function(data) {
 		data.forEach(function(r){
 			var HTML = '<li class="link"><i class="fas fa-user"></i><a href="/yt-sub-counter/?c='+r.channelId+'"> '+r.channelName+'</li></a><br>';
 			$('.channelPromotions').append(HTML); 
@@ -808,7 +808,7 @@ function search() {
 				YT.UpdateManager.updateBanner(data2.items[0].brandingSettings.image.bannerImageUrl)
 			})
 			   user = data.items[0].snippet.channelId
-				$.post('https://api.munnyreol786.github.io/subGainPost', {username: data.items[0].snippet.title, cid: data.items[0].snippet.channelId})
+				$.post('https://api.livecounts.io/subGainPost', {username: data.items[0].snippet.title, cid: data.items[0].snippet.channelId})
 			window.history.pushState("", "", "/yt-sub-counter/?c="+user+'&t=0&o=0');
 				estimatedArray = []
 				chart.series[0].setData([]);
