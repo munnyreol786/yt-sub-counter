@@ -178,7 +178,7 @@ if (typeOfCounter == 1) {
 }
 
 			if (typeOfCounter == 2) {
-				$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data) {
+				$.getJSON('https://api.livecounts.io/yt_subs', function(data) {
 					$.getJSON('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+user2+'&key='+rightKey, function(data2) {
 						var result1 = data.filter(x => x.cid === user1);
 
@@ -200,7 +200,7 @@ if (typeOfCounter == 1) {
 			}
 
 			if (typeOfCounter == 3) {
-				$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data2) {
+				$.getJSON('https://api.livecounts.io/yt_subs', function(data2) {
 					$.getJSON('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+user+'&key='+rightKey, function(data) {
 						var result1 = data2.filter(x => x.cid === user2);
 
@@ -222,7 +222,7 @@ if (typeOfCounter == 1) {
 			}
 
 			if (typeOfCounter == 4) {
-				$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data3) {
+				$.getJSON('https://api.livecounts.io/yt_subs', function(data3) {
 					var result1 = data3.filter(x => x.cid === user1);
 					var result2 = data3.filter(x => x.cid === user2);
 					if (result1.length != 0) {
@@ -300,7 +300,7 @@ window.onload = () => {
     YT.UrlManager.addUser2();
 	YT.ThemeManager.load();
 
-	$.getJSON('https://api.munnyreol786.github.io/yt_subs', function(data3) {
+	$.getJSON('https://api.livecounts.io/yt_subs', function(data3) {
 		var result1 = data3.filter(x => x.cid === user1);
 		var result2 = data3.filter(x => x.cid === user2);
 		if (result1.length == 0 && result2.length == 0) {
